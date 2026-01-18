@@ -1,13 +1,12 @@
 {
   "name": "supergos",
-  "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques",
-  "version": "4.0.3",
+  "description": "Core skills library for Claude Code: TDD, debugging, collaboration patterns, and proven techniques. Based on superpowers by obra.",
+  "version": "1.0.0",
   "author": {
-    "name": "Jesse Vincent",
-    "email": "jesse@fsck.com"
+    "name": "ThePeppy"
   },
-  "homepage": "https://github.com/obra/supergos",
-  "repository": "https://github.com/obra/supergos",
+  "homepage": "https://github.com/ThePeppy/supergos",
+  "repository": "https://github.com/ThePeppy/supergos",
   "license": "MIT",
   "keywords": ["skills", "tdd", "debugging", "collaboration", "best-practices", "workflows"]
 }

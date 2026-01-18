@@ -780,7 +780,7 @@ git commit -m "feat: implement session.started hook for opencode"
 ```bash
 # Clone supergos skills to OpenCode config directory
 mkdir -p ~/.config/opencode/supergos
-git clone https://github.com/obra/supergos.git ~/.config/opencode/supergos
+git clone https://github.com/ThePeppy/supergos.git ~/.config/opencode/supergos
 ```
 
 ### 2. Install the Plugin
@@ -878,8 +878,8 @@ When a skill references a Claude Code tool you don't have:
 
 ## Getting Help
 
-- Report issues: https://github.com/obra/supergos/issues
-- Documentation: https://github.com/obra/supergos
+- Report issues: https://github.com/ThePeppy/supergos/issues
+- Documentation: https://github.com/ThePeppy/supergos
 ```
 
 **Step 2: Verify file created**

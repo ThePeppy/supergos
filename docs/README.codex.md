@@ -7,7 +7,7 @@ Complete guide for using Supergos with OpenAI Codex.
 Tell Codex:
 
 ```
-Fetch and follow instructions from https://raw.githubusercontent.com/obra/supergos/refs/heads/main/.codex/INSTALL.md
+Fetch and follow instructions from https://raw.githubusercontent.com/ThePeppy/supergos/refs/heads/main/.codex/INSTALL.md
 ```
 
 ## Manual Installation
@@ -23,7 +23,7 @@ Fetch and follow instructions from https://raw.githubusercontent.com/obra/superg
 
 ```bash
 mkdir -p ~/.codex/supergos
-git clone https://github.com/obra/supergos.git ~/.codex/supergos
+git clone https://github.com/ThePeppy/supergos.git ~/.codex/supergos
 ```
 
 #### 2. Install Bootstrap
@@ -144,9 +144,9 @@ Should show v14 or higher (v18+ recommended for ES module support).
 
 ## Getting Help
 
-- Report issues: https://github.com/obra/supergos/issues
-- Main documentation: https://github.com/obra/supergos
-- Blog post: https://blog.fsck.com/2025/10/27/skills-for-openai-codex/
+- Report issues: https://github.com/ThePeppy/supergos/issues
+- Main documentation: https://github.com/ThePeppy/supergos
+- 原项目: https://github.com/obra/superpowers
 
 ## Note
 

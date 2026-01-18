@@ -38,7 +38,7 @@ Thanks!
 In Claude Code, register the marketplace first:
 
 ```bash
-/plugin marketplace add obra/supergos-marketplace
+/plugin marketplace add ThePeppy/supergos-marketplace
 ```
 
 Then install the plugin from this marketplace:

@@ -7,7 +7,7 @@ Complete guide for using Supergos with [OpenCode.ai](https://opencode.ai).
 Tell OpenCode:
 
 ```
-Clone https://github.com/obra/supergos to ~/.config/opencode/supergos, then create directory ~/.config/opencode/plugin, then symlink ~/.config/opencode/supergos/.opencode/plugin/supergos.js to ~/.config/opencode/plugin/supergos.js, then restart opencode.
+Clone https://github.com/ThePeppy/supergos to ~/.config/opencode/supergos, then create directory ~/.config/opencode/plugin, then symlink ~/.config/opencode/supergos/.opencode/plugin/supergos.js to ~/.config/opencode/plugin/supergos.js, then restart opencode.
 ```
 
 ## Manual Installation
@@ -24,7 +24,7 @@ Clone https://github.com/obra/supergos to ~/.config/opencode/supergos, then crea
 
 ```bash
 mkdir -p ~/.config/opencode/supergos
-git clone https://github.com/obra/supergos.git ~/.config/opencode/supergos
+git clone https://github.com/ThePeppy/supergos.git ~/.config/opencode/supergos
 ```
 
 #### 2. Register the Plugin
@@ -210,8 +210,9 @@ Restart OpenCode to load the updates.
 
 ## Getting Help
 
-- Report issues: https://github.com/obra/supergos/issues
-- Main documentation: https://github.com/obra/supergos
+- Report issues: https://github.com/ThePeppy/supergos/issues
+- Main documentation: https://github.com/ThePeppy/supergos
+- 原项目: https://github.com/obra/superpowers
 - OpenCode docs: https://opencode.ai/docs/
 
 ## Testing
