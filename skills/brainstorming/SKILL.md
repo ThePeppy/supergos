@@ -11,7 +11,7 @@ Help turn ideas into fully formed designs and specs through natural collaborativ
 
 Start by understanding the current project context, then ask questions one at a time to refine the idea. Once you understand what you're building, present the design in small sections (200-300 words), checking after each section whether it looks right so far.
 
-**⚠️ 设计阶段必须遵循 supergos:code 全局开发规范**
+**⚠️ Design phase MUST follow supergos:code global development standards**
 
 ## The Process
 
@@ -26,7 +26,7 @@ Start by understanding the current project context, then ask questions one at a 
 - Propose 2-3 different approaches with trade-offs
 - Present options conversationally with your recommendation and reasoning
 - Lead with your recommended option and explain why
-- **涉及技术选型时：** 调用 mcp:context-7 获取框架/库的最新文档和版本信息
+- **When involving technology selection:** Call mcp:context-7 to get latest documentation and version info for frameworks/libraries
 
 **Presenting the design:**
 - Once you believe you understand what you're building, present the design
@@ -34,8 +34,8 @@ Start by understanding the current project context, then ask questions one at a 
 - Ask after each section whether it looks right so far
 - Cover: architecture, components, data flow, error handling, testing
 - Be ready to go back and clarify if something doesn't make sense
-- **涉及界面设计时：** 调用 ui/ux pro max 确保设计美感和用户体验
-- **涉及代码架构时：** 调用 code-simplifier 确保架构清晰可维护
+- **When involving UI design:** Call ui/ux pro max to ensure design aesthetics and user experience
+- **When involving code architecture:** Call code-simplifier to ensure clear, maintainable architecture
 
 ## After the Design
 
@@ -58,19 +58,19 @@ Start by understanding the current project context, then ask questions one at a 
 - **Incremental validation** - Present design in sections, validate each
 - **Be flexible** - Go back and clarify when something doesn't make sense
 
-## 开发规范遵循（supergos:code）
+## Development Standards Compliance (supergos:code)
 
-在设计阶段，必须遵循以下规范：
+During design phase, MUST follow these standards:
 
-**技术选型时（mcp:context-7）：**
-- 使用任何框架之前 → 调用 context-7 获取最新文档
-- 使用任何第三方库之前 → 调用 context-7 获取最新版本和 API 文档
-- 禁止在未获取最新文档前确定技术选型
+**Technology Selection (mcp:context-7):**
+- Before using any framework → Call context-7 to get latest documentation
+- Before using any third-party library → Call context-7 to get latest version and API docs
+- Do NOT finalize technology choices without retrieving latest documentation
 
-**界面设计时（ui/ux pro max）：**
-- 设计新界面方案时 → 调用 ui/ux pro max 获取设计建议
-- 确保设计符合美学标准和用户体验要求
+**UI Design (ui/ux pro max):**
+- When designing new interfaces → Call ui/ux pro max for design suggestions
+- Ensure design meets aesthetic standards and UX requirements
 
-**代码架构设计时（code-simplifier）：**
-- 设计代码架构时 → 调用 code-simplifier 规划清晰可维护的架构
-- 确保架构设计不会导致：逻辑嵌套复杂、命名不一致、代码重复等问题
+**Code Architecture Design (code-simplifier):**
+- When designing code architecture → Call code-simplifier to plan clear, maintainable architecture
+- Ensure architecture design avoids: complex nested logic, inconsistent naming, code duplication

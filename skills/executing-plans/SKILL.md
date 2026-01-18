@@ -13,21 +13,21 @@ Load plan, review critically, execute tasks in batches, report for review betwee
 
 **Announce at start:** "I'm using the executing-plans skill to implement this plan."
 
-**⚠️ 开发过程中必须遵循 supergos:code 全局开发规范**
+**⚠️ MUST follow supergos:code global development standards during development**
 
 ## The Process
 
-### Step 0: 执行前检查（Pre-Execution Check）
+### Step 0: Pre-Execution Check
 
-**A. 任务连续性确认：**
-1. 读取最后一次 git 提交描述，或近期与计划相关的提交记录
-2. 判断上一个任务的完成情况
-3. 若未找到相关提交记录（可能是上下文丢失）→ 执行代码 review 确认完成状态
+**A. Task Continuity Verification:**
+1. Read the last git commit description, or recent commits related to the plan
+2. Determine the completion status of the previous task
+3. If no related commits found (possibly due to context loss) → Review code to confirm completion status
 
-**B. 设计方案对齐：**
-1. Review 项目设计方案文件（`docs/plans/` 目录下的设计文档）
-2. 确定当前计划应如何开发和设计
-3. 确保实现方向与设计方案一致
+**B. Design Document Alignment:**
+1. Review project design documents (design docs in `docs/plans/` directory)
+2. Determine how the current plan should be developed and designed
+3. Ensure implementation direction aligns with design documents
 
 ### Step 1: Load and Review Plan
 1. Read plan file
@@ -41,10 +41,10 @@ Load plan, review critically, execute tasks in batches, report for review betwee
 For each task:
 1. Mark as in_progress
 2. Follow each step exactly (plan has bite-sized steps)
-3. **遵循 supergos:code 规范：**
-   - 使用框架/库时 → 先调用 mcp:context-7 获取最新文档
-   - 开发 UI 时 → 调用 ui/ux pro max 审查设计
-   - 编写代码时 → 调用 code-simplifier 确保代码质量
+3. **Follow supergos:code standards:**
+   - When using frameworks/libraries → First call mcp:context-7 to get latest docs
+   - When developing UI → Call ui/ux pro max to review design
+   - When writing code → Call code-simplifier to ensure code quality
 4. Run verifications as specified
 5. Mark as completed
 
@@ -60,20 +60,20 @@ Based on feedback:
 - Execute next batch
 - Repeat until complete
 
-### Step 5: 设计符合性验证（Design Compliance Verification）
+### Step 5: Design Compliance Verification
 
 After all tasks complete and verified:
 
-**A. 设计一致性检查：**
-1. 再次 review 设计文档（`docs/plans/` 目录）
-2. 对比实际实现功能与设计方案要求
-3. 检查是否存在偏差或遗漏
-4. 向用户展示实现与设计的对照结果
+**A. Design Consistency Check:**
+1. Review design documents again (`docs/plans/` directory)
+2. Compare actual implementation with design requirements
+3. Check for deviations or omissions
+4. Present comparison results between implementation and design to user
 
-**B. 用户确认：**
-1. 询问用户："实现是否符合设计预期？"
-2. 根据用户反馈决定是否需要调整
-3. 若用户确认符合预期 → 进入 Step 6
+**B. User Confirmation:**
+1. Ask user: "Does the implementation meet design expectations?"
+2. Decide whether adjustments are needed based on user feedback
+3. If user confirms it meets expectations → Proceed to Step 6
 
 ### Step 6: Complete Development
 
@@ -101,12 +101,12 @@ After user confirms implementation meets design:
 **Don't force through blockers** - stop and ask.
 
 ## Remember
-- **执行前检查** - 先确认上次任务完成情况和设计方案
-- **遵循规范** - 开发过程中始终遵循 supergos:code 规范
+- **Pre-execution check** - First verify previous task completion and design documents
+- **Follow standards** - Always follow supergos:code standards during development
 - Review plan critically first
 - Follow plan steps exactly
 - Don't skip verifications
 - Reference skills when plan says to
 - Between batches: just report and wait
 - Stop when blocked, don't guess
-- **执行后验证** - 完成后 review 设计文档并询问用户确认
+- **Post-execution verification** - Review design docs after completion and ask for user confirmation

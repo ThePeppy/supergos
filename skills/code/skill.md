@@ -1,128 +1,128 @@
 ---
 name: code
-description: "全局开发规范 - 所有项目必须遵循。定义技术文档获取、UI/UX设计、代码质量的标准化工作流程。"
+description: "Global development standards - All projects MUST follow. Defines standardized workflows for technical documentation, UI/UX design, and code quality."
 ---
 
-# 全局开发规范
+# Global Development Standards
 
 ## Overview
 
-本规范定义了开发过程中必须遵循的标准化工作流程，确保代码质量、设计美感和技术选型的正确性。
+This specification defines standardized workflows that MUST be followed during development to ensure code quality, design aesthetics, and correct technology choices.
 
-**所有项目的智能体在开发过程中都必须参照本规范执行。**
+**All agents MUST follow these standards throughout the development process.**
 
-## 技术文档获取规范（mcp:context-7）
+## Technical Documentation Standards (mcp:context-7)
 
-### 什么时候做
+### When to Use
 
-| 场景 | 触发条件 |
-|------|---------|
-| 框架使用 | 使用任何框架之前 |
-| 第三方库使用 | 使用任何第三方库之前 |
-| 版本升级 | 版本升级或迁移时 |
-| API 不确定 | 不确定某个 API 用法时 |
+| Scenario | Trigger |
+|----------|--------|
+| Framework usage | Before using any framework |
+| Third-party library | Before using any third-party library |
+| Version upgrade | During version upgrades or migrations |
+| API uncertainty | When unsure about API usage |
 
-### 需要做什么
+### What to Do
 
-1. 获取框架/库的最新版本信息
-2. 获取官方 API 文档
-3. 获取最佳实践和示例代码
-4. 获取版本变更说明（如适用）
+1. Get the latest version information for frameworks/libraries
+2. Retrieve official API documentation
+3. Get best practices and example code
+4. Get changelog/migration guides (if applicable)
 
-### 怎么做
-
-```
-调用 mcp:context-7 查询相关文档
-- 明确指定框架/库名称和版本要求
-- 获取完整的 API 文档后再开始编码
-- 记录使用的版本号到项目文档中
-```
-
-**⚠️ 强制要求：禁止在未获取最新文档前使用框架或第三方库**
-
-## UI/UX 设计规范（ui/ux pro max）
-
-### 什么时候做
-
-| 场景 | 触发条件 |
-|------|---------|
-| 界面方案设计 | 设计新界面方案时 |
-| UI 组件开发 | 开发 UI 组件时 |
-| 界面修改 | 修改现有界面时 |
-| UI 代码审查 | 审查 UI 相关代码时 |
-
-### 需要做什么
-
-1. 确保设计符合美学标准
-2. 验证用户体验流畅性
-3. 检查组件一致性
-4. 审查交互设计合理性
-
-### 怎么做
+### How to Do It
 
 ```
-调用 ui/ux pro max skill
-- 设计阶段：获取设计建议和规范指导
-- 开发阶段：审查实现是否符合设计规范
-- 修改阶段：确保修改不破坏整体美感和一致性
+Call mcp:context-7 to query documentation
+- Specify framework/library name and version requirements
+- Get complete API documentation before starting to code
+- Record version numbers in project documentation
 ```
 
-## 代码质量规范（code-simplifier）
+**⚠️ MANDATORY: Do NOT use any framework or third-party library without first retrieving its latest documentation**
 
-### 什么时候做
+## UI/UX Design Standards (ui/ux pro max)
 
-| 场景 | 触发条件 |
-|------|---------|
-| 架构设计 | 设计代码架构时 |
-| 新代码编写 | 编写新代码时 |
-| 代码重构 | 重构现有代码时 |
-| 代码审查 | 进行代码审查时 |
+### When to Use
 
-### 需要做什么
+| Scenario | Trigger |
+|----------|--------|
+| Interface design | When designing new interfaces |
+| UI component development | When developing UI components |
+| Interface modification | When modifying existing interfaces |
+| UI code review | When reviewing UI-related code |
 
-消除以下代码问题：
+### What to Do
 
-| 问题 | 解决方案 |
-|------|---------|
-| 逻辑嵌套像迷宫 | 扁平化逻辑，提前返回 |
-| 变量命名风格不一 | 统一命名规范 |
-| 重复代码/"临时补丁" | 抽象复用，消除补丁 |
-| 代码能跑但不敢改 | 清晰结构，敢于修改 |
-| 同事不敢接手 | 高可读性，易于交接 |
+1. Ensure design meets aesthetic standards
+2. Verify smooth user experience
+3. Check component consistency
+4. Review interaction design rationality
 
-### 怎么做
+### How to Do It
 
 ```
-调用 code-simplifier 插件
-- 架构设计：规划清晰可维护的架构
-- 代码编写：生成简洁高可读的代码
-- 代码重构：简化逻辑、统一风格
-- 代码审查：检查并修复质量问题
+Call ui/ux pro max skill
+- Design phase: Get design suggestions and guidelines
+- Development phase: Review implementation against design specs
+- Modification phase: Ensure changes don't break overall aesthetics and consistency
 ```
 
-## 规范执行检查清单
+## Code Quality Standards (code-simplifier)
 
-在开发过程中，定期检查以下项目：
+### When to Use
 
-**技术选型：**
-- [ ] 是否通过 context-7 获取了框架文档？
-- [ ] 是否通过 context-7 获取了第三方库文档？
-- [ ] 是否记录了使用的版本号？
+| Scenario | Trigger |
+|----------|--------|
+| Architecture design | When designing code architecture |
+| New code writing | When writing new code |
+| Code refactoring | When refactoring existing code |
+| Code review | When conducting code reviews |
 
-**UI/UX：**
-- [ ] 是否通过 ui/ux pro max 审查了设计？
-- [ ] 界面是否符合美学标准？
-- [ ] 用户体验是否流畅？
+### What to Do
 
-**代码质量：**
-- [ ] 是否通过 code-simplifier 优化了代码？
-- [ ] 逻辑是否清晰易懂？
-- [ ] 命名是否统一规范？
-- [ ] 是否消除了重复代码？
+Eliminate the following code issues:
+
+| Problem | Solution |
+|---------|----------|
+| Maze-like nested logic | Flatten logic, early returns |
+| Inconsistent naming styles | Unify naming conventions |
+| Duplicate code/"temporary patches" | Abstract for reuse, eliminate patches |
+| Code works but afraid to modify | Clear structure, safe to change |
+| Colleagues afraid to take over | High readability, easy handover |
+
+### How to Do It
+
+```
+Call code-simplifier plugin
+- Architecture design: Plan clear, maintainable architecture
+- Code writing: Generate concise, highly readable code
+- Code refactoring: Simplify logic, unify style
+- Code review: Check and fix quality issues
+```
+
+## Standards Execution Checklist
+
+During development, regularly check the following:
+
+**Technology Selection:**
+- [ ] Retrieved framework documentation via context-7?
+- [ ] Retrieved third-party library documentation via context-7?
+- [ ] Recorded version numbers used?
+
+**UI/UX:**
+- [ ] Reviewed design via ui/ux pro max?
+- [ ] Does interface meet aesthetic standards?
+- [ ] Is user experience smooth?
+
+**Code Quality:**
+- [ ] Optimized code via code-simplifier?
+- [ ] Is logic clear and understandable?
+- [ ] Is naming consistent and standardized?
+- [ ] Eliminated duplicate code?
 
 ## Remember
 
-- **先文档后编码** - 使用框架/库前必须获取最新文档
-- **美感不妥协** - UI/UX 设计必须经过专业审查
-- **质量是底线** - 代码必须清晰、可维护、易交接
-- **规范要贯穿** - 从设计到开发全程遵循本规范
+- **Documentation before coding** - MUST retrieve latest docs before using frameworks/libraries
+- **No compromise on aesthetics** - UI/UX design MUST undergo professional review
+- **Quality is the baseline** - Code MUST be clear, maintainable, and easy to hand over
+- **Standards throughout** - Follow these standards from design to development
