@@ -1,5 +1,5 @@
 /**
- * Superpowers plugin for OpenCode.ai
+ * Supergos plugin for OpenCode.ai
  *
  * Provides custom tools for loading and discovering skills,
  * with prompt generation for agent configuration.
@@ -14,25 +14,25 @@ import * as skillsCore from '../../lib/skills-core.js';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-export const SuperpowersPlugin = async ({ client, directory }) => {
+export const SupergosPlugin = async ({ client, directory }) => {
   const homeDir = os.homedir();
   const projectSkillsDir = path.join(directory, '.opencode/skills');
-  // Derive superpowers skills dir from plugin location (works for both symlinked and local installs)
-  const superpowersSkillsDir = path.resolve(__dirname, '../../skills');
+  // Derive supergos skills dir from plugin location (works for both symlinked and local installs)
+  const supergosSkillsDir = path.resolve(__dirname, '../../skills');
   const personalSkillsDir = path.join(homeDir, '.config/opencode/skills');
 
   // Helper to generate bootstrap content
   const getBootstrapContent = (compact = false) => {
-    const usingSuperpowersPath = skillsCore.resolveSkillPath('using-superpowers', superpowersSkillsDir, personalSkillsDir);
-    if (!usingSuperpowersPath) return null;
+    const usingSupergosPath = skillsCore.resolveSkillPath('using-supergos', supergosSkillsDir, personalSkillsDir);
+    if (!usingSupergosPath) return null;
 
-    const fullContent = fs.readFileSync(usingSuperpowersPath.skillFile, 'utf8');
+    const fullContent = fs.readFileSync(usingSupergosPath.skillFile, 'utf8');
     const content = skillsCore.stripFrontmatter(fullContent);
 
     const toolMapping = compact
       ? `**Tool Mapping:** TodoWrite->update_plan, Task->@mention, Skill->use_skill
 
-**Skills naming (priority order):** project: > personal > superpowers:`
+**Skills naming (priority order):** project: > personal > supergos:`
       : `**Tool Mapping for OpenCode:**
 When skills reference tools you don't have, substitute OpenCode equivalents:
 - \`TodoWrite\` → \`update_plan\`
@@ -43,13 +43,13 @@ When skills reference tools you don't have, substitute OpenCode equivalents:
 **Skills naming (priority order):**
 - Project skills: \`project:skill-name\` (in .opencode/skills/)
 - Personal skills: \`skill-name\` (in ~/.config/opencode/skills/)
-- Superpowers skills: \`superpowers:skill-name\`
-- Project skills override personal, which override superpowers when names match`;
+- Supergos skills: \`supergos:skill-name\`
+- Project skills override personal, which override supergos when names match`;
 
     return `<EXTREMELY_IMPORTANT>
-You have superpowers.
+You have supergos.
 
-**IMPORTANT: The using-superpowers skill content is included below. It is ALREADY LOADED - you are currently following it. Do NOT use the use_skill tool to load "using-superpowers" - that would be redundant. Use use_skill only for OTHER skills.**
+**IMPORTANT: The using-supergos skill content is included below. It is ALREADY LOADED - you are currently following it. Do NOT use the use_skill tool to load "using-supergos" - that would be redundant. Use use_skill only for OTHER skills.**
 
 ${content}
 
@@ -81,12 +81,12 @@ ${toolMapping}
       use_skill: tool({
         description: 'Load and read a specific skill to guide your work. Skills contain proven workflows, mandatory processes, and expert techniques.',
         args: {
-          skill_name: tool.schema.string().describe('Name of the skill to load (e.g., "superpowers:brainstorming", "my-custom-skill", or "project:my-skill")')
+          skill_name: tool.schema.string().describe('Name of the skill to load (e.g., "supergos:brainstorming", "my-custom-skill", or "project:my-skill")')
         },
         execute: async (args, context) => {
           const { skill_name } = args;
 
-          // Resolve with priority: project > personal > superpowers
+          // Resolve with priority: project > personal > supergos
           // Check for project: prefix first
           const forceProject = skill_name.startsWith('project:');
           const actualSkillName = forceProject ? skill_name.replace(/^project:/, '') : skill_name;
@@ -94,7 +94,7 @@ ${toolMapping}
           let resolved = null;
 
           // Try project skills first (if project: prefix or no prefix)
-          if (forceProject || !skill_name.startsWith('superpowers:')) {
+          if (forceProject || !skill_name.startsWith('supergos:')) {
             const projectPath = path.join(projectSkillsDir, actualSkillName);
             const projectSkillFile = path.join(projectPath, 'SKILL.md');
             if (fs.existsSync(projectSkillFile)) {
@@ -106,9 +106,9 @@ ${toolMapping}
             }
           }
 
-          // Fall back to personal/superpowers resolution
+          // Fall back to personal/supergos resolution
           if (!resolved && !forceProject) {
-            resolved = skillsCore.resolveSkillPath(skill_name, superpowersSkillsDir, personalSkillsDir);
+            resolved = skillsCore.resolveSkillPath(skill_name, supergosSkillsDir, personalSkillsDir);
           }
 
           if (!resolved) {
@@ -146,18 +146,18 @@ ${toolMapping}
         }
       }),
       find_skills: tool({
-        description: 'List all available skills in the project, personal, and superpowers skill libraries.',
+        description: 'List all available skills in the project, personal, and supergos skill libraries.',
         args: {},
         execute: async (args, context) => {
           const projectSkills = skillsCore.findSkillsInDir(projectSkillsDir, 'project', 3);
           const personalSkills = skillsCore.findSkillsInDir(personalSkillsDir, 'personal', 3);
-          const superpowersSkills = skillsCore.findSkillsInDir(superpowersSkillsDir, 'superpowers', 3);
+          const supergosSkills = skillsCore.findSkillsInDir(supergosSkillsDir, 'supergos', 3);
 
-          // Priority: project > personal > superpowers
-          const allSkills = [...projectSkills, ...personalSkills, ...superpowersSkills];
+          // Priority: project > personal > supergos
+          const allSkills = [...projectSkills, ...personalSkills, ...supergosSkills];
 
           if (allSkills.length === 0) {
-            return 'No skills found. Install superpowers skills to ~/.config/opencode/superpowers/skills/ or add project skills to .opencode/skills/';
+            return 'No skills found. Install supergos skills to ~/.config/opencode/supergos/skills/ or add project skills to .opencode/skills/';
           }
 
           let output = 'Available skills:\n\n';
@@ -172,7 +172,7 @@ ${toolMapping}
                 namespace = '';
                 break;
               default:
-                namespace = 'superpowers:';
+                namespace = 'supergos:';
             }
             const skillName = skill.name || path.basename(skill.path);
 
